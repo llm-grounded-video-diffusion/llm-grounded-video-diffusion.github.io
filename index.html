@@ -1,1 +1,211 @@
-<title>LLM-grounded Video Diffusion Models</title>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>LLM-grounded Video Diffusion: Improving Text-to-Video Generation with Large Language Models</title>
+
+    <meta
+        content="LLM-grounded Video Diffusion: Improving Text-to-Video Generation with Large Language Models"
+        name="description" />
+    <meta content="LLM-grounded Video Diffusion: Improving Text-to-Video Generation with Large Language Models" property="og:title" />
+    <meta
+        content="LLM-grounded Video Diffusion: Improving Text-to-Video Generation with Large Language Models"
+        property="og:description" />
+    <meta content="https://llm-grounded-diffusion.github.io/visualizations.jpg"
+        property="og:image" />
+    <meta content="LLM-grounded Video Diffusion: Improving Text-to-Video Generation with Large Language Models" property="twitter:title" />
+    <meta
+        content="LLM-grounded Video Diffusion: Improving Text-to-Video Generation with Large Language Models"
+        property="twitter:description" />
+    <meta content="https://llm-grounded-diffusion.github.io/visualizations.jpg"
+        property="twitter:image" />
+    <meta property="og:type" content="website" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+    <link href="style.css?v=v1" rel="stylesheet" type="text/css" /> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <div class="section">
+        <div class="container">
+            <div class="title-row">
+                <h1 class="title">LLM-grounded Video Diffusion</h1>
+            </div>
+            <div class="base-row author-row">
+                <div class="base-col author-col">
+                    <a href="https://tonylian.com" target="_blank" class="author-text">
+                        Long Lian*
+                    </a>
+                </div>
+                <div class="base-col author-col">
+                    <a href="https://bfshi.github.io/" target="_blank" class="author-text">
+                        Baifeng Shi*
+                    </a>
+                </div>
+                <div class="base-col author-col">
+                    <a href="https://www.adamyala.org/" target="_blank" class="author-text">
+                        Adam Yala
+                    </a>
+                </div>
+                <div class="base-col author-col">
+                    <a href="https://people.eecs.berkeley.edu/~trevor/" target="_blank" class="author-text">
+                        Trevor Darrell
+                    </a>
+                </div>
+                <div class="base-col author-col">
+                    <a href="https://sites.google.com/site/boyilics/home" target="_blank" class="author-text">
+                        Boyi Li
+                    </a>
+                </div>
+            </div>
+            <div class="base-row author-row">
+                <div class="base-col author-col">
+                    UC Berkeley
+                </div>
+                <div class="base-col author-col">
+                    UC Berkeley
+                </div>
+                <div class="base-col author-col">
+                    UC Berkeley/UCSF
+                </div>
+                <div class="base-col author-col">
+                    UC Berkeley
+                </div>
+                <div class="base-col author-col">
+                    UC Berkeley
+                </div>
+            </div>
+            <div class="link-labels base-row">
+                <div class="base-col icon-col"><a href="" target="_blank"
+                        class="link-block">
+                    <i class="fa fas fa-file-text main-icon" style="font-size: 75px"></i>
+                    </a></div>
+                <div class="base-col icon-col"><a href='' class="link-block">
+                    <i class="fa fa-cube main-icon" style="font-size: 75px"></i>
+                    </a></div>
+                <div class="base-col icon-col"><a href='' class="link-block">
+                    <i class="fa fa-github main-icon" style="font-size: 75px"></i>
+                    </a></div>
+                <div class="base-col icon-col"><a href="#citation" class="link-block">
+                    <i class="fa fa-graduation-cap main-icon" style="font-size: 75px"></i>
+                    </a></div>
+                <div class="base-col icon-col"><a href="https://llm-grounded-diffusion.github.io/" class="link-block">
+                    <i class="fa fa-link main-icon" style="font-size: 75px"></i>
+                    </a></div>
+            </div>
+            <div class="link-labels base-row">
+                <div class="base-col icon-col">
+                    <strong class="link-labels-text">Paper (Coming Soon)</strong>
+                </div>
+                <div class="base-col icon-col">
+                    <strong class="link-labels-text">Demo (Coming Soon)</strong>
+                </div>
+                <div class="base-col icon-col">
+                    <strong class="link-labels-text">Code (Coming Soon)</strong>
+                </div>
+                <div class="base-col icon-col">
+                    <strong class="link-labels-text">Citation</strong>
+                </div>
+                <div class="base-col icon-col">
+                    <strong class="link-labels-text">Related Project: LMD</strong>
+                </div>
+            </div>
+            <h1 class="tldr">
+                <b>TL;DR</b>: Text Prompt -> LLM as a front end -> Intermediate Representation (such a an dynamic scene layout) -> Video Diffusion Models -> Video.
+            </h1>
+
+
+            <div class="base-row add-top-padding">
+                <h1 id="abstract">LLM-grounded Video Diffusion (LVD)</h1>
+                <p class="paragraph">
+                    Our LLM-grounded Video Diffusion (LVD) improves text-to-video generation by using a large language model to generate dynamic scene layouts from text and then guiding video diffusion models with these layouts, achieving realistic video generation that align with complex input prompts.
+                </p>
+                <div class="base-row add-top-padding">
+                    <img class="img" src="teaser.jpg" />
+                </div>
+                
+            </div>
+
+            <div class="base-row add-top-padding">
+                <h1>Motivation</h1>
+                <p class="paragraph">
+                    While the state-of-the-art open-source text-to-video models still cannot perform simple things such as faithfully depicting object dynamics according to the text prompt, LLM-grounded Video Diffusion (LVD) enables text-to-video diffusion models to generate videos that are much more aligned with complex input text prompts.
+                </p>
+            </div>
+
+            <div class="base-row add-top-padding">
+                <h1>Method</h1>
+                <div class="base-row add-top-padding">
+                    <img class="img" src="overall_method.jpg" />
+                </div>
+                <p class="paragraph">
+                    <b>Our method LVD improves text-to-video diffusion models by turning the text-to-video generation into a two-stage pipeline.</b> In stage 1, we introduce an LLM as the spatiotemporal planner that creates plans for video generation in the form of a dynamic scene layout (DSL). A DSL includes objects bounding boxes that are linked across the frames. In stage 2, we condition the video generation on the text and the DSL with our DSL-grounded video generator. Both stages are training-free: LLMs and diffusion models are used off-the-shelf without updating the parameters.
+                </p>
+            </div>
+
+            <div class="base-row add-top-padding">
+                <h1>Investigation: can LLM generate spatiotemporal dynamics?</h1>
+                <p class="paragraph no-bottom-margin">
+                    With only three fixed in-context examples that demonstrate three key properties, LLMs can generate realistic dynamic scene layouts (DSLs) and even consider other object/world properties that are not mentioned in the prompt or examples. <br/>
+                    <b>Three in-context examples that we use: </b>
+                </p>
+                <div class="base-row">
+                    <img class="img" src="in_context_examples.jpg" />
+                </div>
+                <p class="paragraph no-bottom-margin">
+                    <b>LLM generates dynamic scene layouts, taking the world properties (<i>e.g.</i>, gravity, elasticity, air friction) into account: </b>
+                </p>
+                <div class="base-row">
+                    <img class="img" src="world_properties.jpg" />
+                </div>
+                <p class="paragraph no-bottom-margin">
+                    <b>LLM generates dynamic scene layouts, taking the camera properties (<i>e.g.</i>, perspective projection) into account: </b>
+                </p>
+                <div class="base-row">
+                    <img class="img" src="camera_properties.jpg" />
+                </div>
+                <b class="paragraph">
+                    LLMs understand these properties from the pretraining stage (<i>i.e.</i>, stored in the weights). The in-context examples are here to help LLM understand the desired world for dynamic scene layouts generation. Therefore, <b>several fixed examples that cover the key properties are sufficient to allow LLM for reasonably guess and generate realistic layouts</b>.
+                </p>
+            </div>
+
+            <div class="base-row add-top-padding">
+                <h1>Generating Videos from Dynamic Scene Layouts</h1>
+                <div class="base-row add-top-padding">
+                    <img class="img" src="dsl_to_video.jpg" />
+                </div>
+                <p class="paragraph">
+                    <b>Our DSL-grounded video generator</b> generates videos from a DSL using existing text-to-video diffusion models augmented with appropriate DSL guidance. In this stage, our method alternates between DSL guidance steps and denoising steps.
+                </p>
+            </div>
+
+            <div class="base-row add-top-padding">
+                <h1>Visualizations</h1>
+                <p class="paragraph">
+                    We propose a benchmark with five tasks. Without specifically aiming for each task, LVD performs much better compared to the base model, even though it does not change any diffusion model param.
+                </p>
+                <div class="base-row add-top-padding">
+                    <img class="img" src="visualizations.jpg" />
+                </div>
+            </div>
+
+            <div class="citation add-top-padding">
+                <h1 id="citation">Citation</h1>
+                <p> If you use this work or find it helpful, please consider citing: </p>
+                <pre id="codecell0">
+@article{lian2023llmgrounded,
+    title={LLM-grounded Diffusion: Enhancing Prompt Understanding of Text-to-Image Diffusion Models with Large Language Models}, 
+    author={Lian, Long and Li, Boyi and Yala, Adam and Darrell, Trevor},
+    journal={arXiv preprint arXiv:2305.13655},
+    year={2023}
+}
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <p class="credit">Credit: The design of this project page references the project pages of <a href="https://llm-grounded-diffusion.github.io/">LMD</a>, <a href="https://www.matthewtancik.com/nerf">NeRF</a>, <a
+            href="https://github.com/DeepMotionEditing/DeepMotionEditing.github.io">DeepMotionEditing</a>, and <a
+            href="https://www.lerf.io/">LERF</a>.</p>
+</body>
